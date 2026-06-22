@@ -1,0 +1,182 @@
+/* AI-Native Design System — 智能面试助手 */
+:root {
+  --bg: #0A0E1A;
+  --bg-2: #0D1526;
+  --bg-card: rgba(255,255,255,0.04);
+  --bg-card-hover: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.08);
+  --border-active: rgba(99,102,241,0.5);
+  --text: #E2E8F0;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
+  --primary: #6366F1;
+  --primary-glow: rgba(99,102,241,0.3);
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --gradient: linear-gradient(135deg, #6366F1, #8B5CF6);
+  --gradient-bg: linear-gradient(135deg, #0A0E1A 0%, #0D1B3E 50%, #1A0533 100%);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-glow: 0 0 24px rgba(99,102,241,0.2);
+  --font: 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border: none;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Ant Design overrides for dark theme */
+.ant-btn-primary {
+  background: var(--gradient) !important;
+  border: none !important;
+  box-shadow: var(--shadow-glow) !important;
+}
+.ant-btn-primary:hover { opacity: 0.9 !important; }
+/* 全局输入框深色主题修复 */
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-input-password,
+.ant-input-textarea textarea,
+.ant-select-selector,
+.ant-picker {
+  background: rgba(255,255,255,0.07) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  color: #E2E8F0 !important;
+  border-radius: var(--radius-sm) !important;
+}
+.ant-input::placeholder,
+.ant-input-affix-wrapper input::placeholder,
+.ant-input-password input::placeholder,
+.ant-input-textarea textarea::placeholder {
+  color: rgba(255,255,255,0.3) !important;
+}
+.ant-input:focus,
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused,
+.ant-input-password:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px var(--primary-glow) !important;
+}
+/* 覆盖浏览器 autofill 背景色 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+.ant-input-affix-wrapper input:-webkit-autofill,
+.ant-input-affix-wrapper input:-webkit-autofill:hover,
+.ant-input-affix-wrapper input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #0D1526 inset !important;
+  -webkit-text-fill-color: #E2E8F0 !important;
+  caret-color: #E2E8F0 !important;
+}
+
+/* 密码框内部 input — 只让密码框内层透明，不影响普通输入框 */
+.ant-input-affix-wrapper input,
+.ant-input-affix-wrapper > input.ant-input,
+.ant-input-password input,
+input[type="password"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #E2E8F0 !important;
+  height: 100% !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.ant-input-affix-wrapper {
+  padding: 8px 11px !important;
+  align-items: center !important;
+  display: flex !important;
+  background: rgba(255,255,255,0.07) !important;
+  background-color: rgba(255,255,255,0.07) !important;
+}
+/* 全局文字对比度保障 */
+.ant-typography, .ant-card-head-title, .ant-statistic-title,
+.ant-statistic-content, .ant-collapse-header, .ant-timeline-item-content,
+.ant-tabs-tab, .ant-menu-item, .ant-dropdown-menu-item {
+  color: var(--text) !important;
+}
+.ant-card { background: var(--bg-card) !important; border-color: var(--border) !important; color: var(--text) !important; }
+.ant-card-head { background: transparent !important; border-color: var(--border) !important; color: var(--text) !important; }
+.ant-modal-content { background: #0D1526 !important; border: 1px solid var(--border) !important; }
+.ant-modal-header { background: transparent !important; border-color: var(--border) !important; }
+.ant-modal-title { color: var(--text) !important; }
+.ant-collapse { background: transparent !important; border-color: var(--border) !important; }
+.ant-collapse-content { background: rgba(255,255,255,0.02) !important; border-color: var(--border) !important; color: var(--text-dim) !important; }
+.ant-progress-text { color: var(--text) !important; }
+.ant-badge-status-text { color: var(--text-dim) !important; }
+.ant-empty-description { color: var(--text-muted) !important; }
+.ant-dropdown-menu { background: #0D1526 !important; border: 1px solid var(--border) !important; }
+.ant-dropdown-menu-item { color: var(--text-dim) !important; }
+.ant-dropdown-menu-item:hover { background: rgba(255,255,255,0.06) !important; color: var(--text) !important; }
+.ant-dropdown-menu-item-danger { color: #EF4444 !important; }
+.ant-popconfirm-message-text { color: var(--text) !important; }
+.ant-btn-default { background: var(--bg-card) !important; border-color: var(--border) !important; color: var(--text-dim) !important; }
+.ant-btn-default:hover { border-color: var(--primary) !important; color: var(--text) !important; }
+/* 密码显示/隐藏图标 */
+.ant-input-password .ant-input-suffix,
+.ant-input-affix-wrapper .ant-input-suffix {
+  color: rgba(255,255,255,0.4) !important;
+}
+/* Select 下拉 */
+.ant-select-selector { color: #E2E8F0 !important; }
+.ant-select-selection-placeholder { color: rgba(255,255,255,0.3) !important; }
+/* Modal 内输入框 */
+.ant-modal-content .ant-input,
+.ant-modal-content .ant-input-affix-wrapper,
+.ant-modal-content textarea {
+  background: rgba(255,255,255,0.07) !important;
+  color: #E2E8F0 !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+.ant-modal-content .ant-input::placeholder,
+.ant-modal-content textarea::placeholder {
+  color: rgba(255,255,255,0.3) !important;
+}
+/* Form label */
+.ant-form-item-label label { color: rgba(255,255,255,0.65) !important; }
+/* Table */
+.ant-table { background: var(--bg-card) !important; color: var(--text) !important; }
+.ant-table-thead th { background: rgba(255,255,255,0.04) !important; color: var(--text-dim) !important; border-color: var(--border) !important; }
+.ant-table-tbody td { border-color: var(--border) !important; color: var(--text) !important; }
+.ant-table-tbody tr:hover td { background: rgba(255,255,255,0.04) !important; }
+.ant-tag { border-radius: 4px !important; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
