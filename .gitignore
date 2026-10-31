@@ -1,0 +1,26 @@
+# --- 密钥 ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- IDE ---
+.idea/
+.vscode/
+
+# --- Node ---
+node_modules/
+dist/
+
+# --- 运行时数据（上传文件 / 向量库）---
+data/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
